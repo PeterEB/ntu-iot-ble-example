@@ -9,8 +9,8 @@ var client = new net.Socket();
 central.start();
 
 central.on('ready', function () {
-    central.onDiscovered(function (pInfo, cb) {
-        if (pInfo.addr === '0x546c0e2cd1be') {  // [TODO] Change to your device address
+    central.onDiscovered(function (pInfo, cb) {  
+        if (pInfo.addr === '0x546c0e2cd8b0') {  // [TODO] Change to your device address
             cb(null, true);
         } else {
             cb(null, false);
@@ -40,7 +40,7 @@ central.on('ind', function(msg) {
         case 'attNotify':
             if (msg.data.value.dInState) {
                 console.log('PIR device sensed someone');
-                
+
                 // [TODO] Use the tcp client to send PIR state
             } else {
                 console.log('Someone left');
